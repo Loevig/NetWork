@@ -1,0 +1,79 @@
+#laver af Lasse Engen
+import math
+#import pyplot as plt
+
+
+
+while True:   #starter et loop så man kan køre det flere gange
+    #Får bruger input til de 3 veriabler
+    AString = input('Hvad er a: ')
+    BString = input('Hvad er b: ')
+    CString = input('Hvad er c: ')
+
+
+
+    try: #Se om de 3 veriabler kan convetes til tal
+        A=int(AString)
+        B=int(BString)
+        C=int(CString)
+    except: #Hvis den ikke kan det skriver den, og går til toppen af loopet
+        print("Husk at skrive nummer :)")
+        continue
+
+    D = B**2 - 4*A*C #Ranger diskriminaten ud
+
+    print("Diskriminaten er %d"%(D))
+
+    #Kigger efter hvor mange løsninger der, alt efter om diskriminaten er positiv,negativ eller 0.
+    if D < 0:
+        print("Der er ingen løsninger")
+
+    elif D == 0:
+        x = (-B)/(2*A)
+        print("Der er kun 1 løsning.\nX er: %f" % (x))
+
+    elif D > 0:
+        x1 = (-B + math.sqrt(D))/(2*A)
+        x2 = (-B - math.sqrt(D))/(2*A)
+        print("Der er to læsninger. \nX1 er: %f \nX2 er: %f" % (x1,x2))
+
+    Tx = (-B)/(2*A)
+    Ty = (-D)/(4*A)
+
+    print("Toppunktet er %f , %f" %(Tx, Ty))
+
+    while True: #Starter et loop hvor den spøger om du vil reange y ud.
+        svar = input('Vil ud range y ud? (y/n): ')
+        if svar in ('y', 'n'): #Hivs du skriver y eller n, går den ud af loopet, ellers spøger den igen.
+            break
+        print ('Skriv y eller n.') #Minder dig om, at du kan kan skive y eller n.
+    if svar == 'y': #Hvis du skirver y, starter den et nyt loop.
+        while True:
+            xtilysting = input('Hvad er x i f(x)? ') #Spøger om hvad x skal være når ud renger y ud.
+            try: #Prøver at xtilystring convete til tal, hvis den kan det går den ud af loppet.
+                xtily = int(xtilysting)
+                break
+            except: #Ellers minder den dig om at du skal skrive nummer
+                print("Husk at skrive nummer :)")
+        y = (A*(xtily**2))+(B*xtily)+C #regner y ud.
+        print('Y er %f!' %(y)) #skriver y på skærmen
+
+            #Kode jeg ikke lige kunne få til at virke.
+            #while True:
+             #   svar = input('Vil du range y ud, med en ny x værdig? (y/n): ')
+              #  if svar in ('y', 'n'): #Hivs du skriver y eller n, går den ud af loopet, ellers spøger den igen.
+               #     break
+                #print ('Skriv y eller n.')
+            #if svar == 'y':
+             #   break
+
+    while True: #starter et loop til at se om du vil køre koden igen.
+        svar = input('Kør igen? (y/n): ') #spøger om du vil køre koden igen
+        if svar in ('y', 'n'): #Hivs du skriver y eller n, går den ud af loopet, ellers spøger den igen.
+            break
+        print ('Skriv y eller n.')#Ellers minder den dig om at du kun kan skirve y eller n
+    if svar == 'y': #Hvis du skriver y går den til toppen af det første loop(toppen af koden)
+        continue
+    else: #Ellers går den ud af loopet, af slutter derfor progarmet.
+        print ('Farvel :)')
+        break
