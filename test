@@ -1,7 +1,7 @@
 #laver af Lasse Engen
 import math
 #import pyplot as plt
-
+#test af lasse 
 
 
 while True:   #starter et loop så man kan køre det flere gange
