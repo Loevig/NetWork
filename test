@@ -77,3 +77,7 @@ while True:   #starter et loop så man kan køre det flere gange
     else: #Ellers går den ud af loopet, af slutter derfor progarmet.
         print ('Farvel :)')
         break
+
+
+
+#sup dog get it working now
