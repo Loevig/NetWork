@@ -1,11 +1,15 @@
 from pysnmp.hlapi import *
 
-class SNMP_NAME_CLASS(object):
-    """docstring for SNMP_NAME_CLASS."""
-    def __init__(self, arg):
-        super(SNMP_NAME_CLASS, self).__init__()
-        self.arg = arg
-        
+class SNMP_ClASS(object):
+    """docstring for SNMP_CLASS."""
+    def __init__(self):
+        super(SNMP_CLASS, self).__init__()
+        errorIndication, errorStatus, errorIndex, varBinds = next(
+            getCmd(SnmpEngine(),
+                   CommunityData('H5'),
+                   UdpTransportTarget(('192.168.1.5', 161)),
+                   ContextData(),
+
 errorIndication, errorStatus, errorIndex, varBinds = next(
     getCmd(SnmpEngine(),
            CommunityData('H5'),
@@ -31,3 +35,4 @@ elif errorStatus:
 else:
     for varBind in varBinds:
         print(' = '.join([x.prettyPrint() for x in varBind]))
+mib, mibindex, mibnumber
