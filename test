@@ -1,80 +1,27 @@
-#-*- coding: UTF-8 -*-
-#laver af Lasse Engen
-import math
-c3560-ipbasek9-mz.122-55.SE6.bin
+from pysnmp.hlapi import *
+
+errorIndication, errorStatus, errorIndex, varBinds = next(
+    getCmd(SnmpEngine(),
+           CommunityData('H5'),
+           UdpTransportTarget(('192.168.1.5', 161)),
+           ContextData(),
+           ObjectType(ObjectIdentity('SNMPv2-MIB', 'sysDescr', 0)),
+           ObjectType(ObjectIdentity('IF-MIB', 'ifNumber', 0)),
+           ObjectType(ObjectIdentity('1.3.6.1.2.1.2.2.1.16.10101')),
+           ObjectType(ObjectIdentity('1.3.6.1.2.1.2.2.1.8.5')),
+           ObjectType(ObjectIdentity('1.3.6.1.2.1.1.1.0')))
+)
+
+
+if errorIndication:
 
 
 
-while True:   #starter et loop så man kan køre det flere gange
-    #Får bruger input til de 3 veriabler
-    AString = input('Hvad er a: ')
-    BString = input('Hvad er b: ')
-    CString = input('Hvad er c: ')
+    print(errorIndication)
 
-
-
-    try: #Se om de 3 veriabler kan convetes til tal
-        A=int(AString)
-        B=int(BString)
-        C=int(CString)
-    except: #Hvis den ikke kan det skriver den, og går til toppen af loopet
-        print("Husk at skrive nummer :)")
-        continue
-
-    D = B**2 - 4*A*C #Ranger diskriminaten ud
-
-    print("Diskriminaten er %d"%(D))
-
-    #Kigger efter hvor mange løsninger der, alt efter om diskriminaten er positiv,negativ eller 0.
-    if D < 0:
-        print("Der er ingen løsninger")
-
-    elif D == 0:
-        x = (-B)/(2*A)
-        print("Der er kun 1 løsning.\nX er: %f" % (x))
-
-    elif D > 0:
-        x1 = (-B + math.sqrt(D))/(2*A)
-        x2 = (-B - math.sqrt(D))/(2*A)
-        print("Der er to læsninger. \nX1 er: %f \nX2 er: %f" % (x1,x2))
-
-    Tx = (-B)/(2*A)
-    Ty = (-D)/(4*A)
-
-    print("Toppunktet er %f , %f" %(Tx, Ty))
-
-    while True: #Starter et loop hvor den spøger om du vil reange y ud.
-        svar = input('Vil ud range y ud? (y/n): ')
-        if svar in ('y', 'n'): #Hivs du skriver y eller n, går den ud af loopet, ellers spøger den igen.
-            break
-        print ('Skriv y eller n.') #Minder dig om, at du kan kan skive y eller n.
-    if svar == 'y': #Hvis du skirver y, starter den et nyt loop.
-        while True:
-            xtilysting = input('Hvad er x i f(x)? ') #Spøger om hvad x skal være når ud renger y ud.
-            try: #Prøver at xtilystring convete til tal, hvis den kan det går den ud af loppet.
-                xtily = int(xtilysting)
-                break
-            except: #Ellers minder den dig om at du skal skrive nummer
-                print("Husk at skrive nummer :)")
-        y = (A*(xtily**2))+(B*xtily)+C #regner y ud.
-        print('Y er %f!' %(y)) #skriver y på skærmen
-
-            #Kode jeg ikke lige kunne få til at virke.
-            #while True:
-             #   svar = input('Vil du range y ud, med en ny x værdig? (y/n): ')
-              #  if svar in ('y', 'n'): #Hivs du skriver y eller n, går den ud af loopet, ellers spøger den igen.
-               #     break
-                #print ('Skriv y eller n.')
-            #if svar == 'y':
-             #   break
-
-    while True: #starter et loop til at se om du vil køre koden igen.
-        svar = input('Kør igen? (y/n): ') #spøger om du vil køre koden igen
-        if svar in ('y', 'n'): #Hivs du skriver y eller n, går den ud af loopet, ellers spøger den igen.
-            break
-        print ('Skriv y eller n.')#Ellers minder den dig om at du kun kan skirve y eller n
-    if svar == 'y': #Hvis du skriver y går den til toppen af det første loop(toppen af koden)
-        continue
-    else: #Ellers går den ud af loopet, af slutter derfor progarmet.
-        print ('Farvel :)')
-        break
+elif errorStatus:
+    print('%s at %s' % (errorStatus.prettyPrint(),
+                        errorIndex and varBinds[int(errorIndex) - 1][0] or '?'))
+else:
+    for varBind in varBinds:
+        print(' = '.join([x.prettyPrint() for x in varBind]))

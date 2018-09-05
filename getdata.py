@@ -1,5 +1,11 @@
 from pysnmp.hlapi import *
 
+class SNMP_NAME_CLASS(object):
+    """docstring for SNMP_NAME_CLASS."""
+    def __init__(self, arg):
+        super(SNMP_NAME_CLASS, self).__init__()
+        self.arg = arg
+        
 errorIndication, errorStatus, errorIndex, varBinds = next(
     getCmd(SnmpEngine(),
            CommunityData('H5'),
