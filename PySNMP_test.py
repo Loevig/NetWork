@@ -7,6 +7,8 @@ errorIndication, errorStatus, errorIndex, varBinds = next(
            ContextData(),
            ObjectType(ObjectIdentity('SNMPv2-MIB', 'sysDescr', 0)),
            ObjectType(ObjectIdentity('IF-MIB', 'ifNumber', 0)),
+           ObjectType(ObjectIdentity('1.3.6.1.2.1.2.2.1.8.10105')),
+           ObjectType(ObjectIdentity('1.3.6.1.2.1.2.2.1.8.5')),
            ObjectType(ObjectIdentity('1.3.6.1.2.1.1.1.0')))
 )
 
