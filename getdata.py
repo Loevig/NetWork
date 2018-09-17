@@ -24,5 +24,5 @@ class SNMP_PORTINFO_ClASS():
             for varBind in varBinds:
                 print(' = '.join([x.prettyPrint() for x in varBind]))
 
-G1NAME = SNMP_PORTINFO_ClASS('2.10101')
-G1STAUS = SNMP_PORTINFO_ClASS('6.10101')
+#G1NAME = SNMP_PORTINFO_ClASS('2.10101')
+#G1STAUS = SNMP_PORTINFO_ClASS('6.10101')
