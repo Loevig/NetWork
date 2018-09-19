@@ -9,8 +9,9 @@ class SNMP_PORTINFO_ClASS():
                    CommunityData('H5'),
                    UdpTransportTarget(('192.168.1.5', 161)),
                    ContextData(),
-                   ObjectType(ObjectIdentity('1.3.6.1.2.1.2.2.1.'+ MIBOID_ARG)))
-)
+                   ObjectType(ObjectIdentity('1.3.6.1.2.1.2.2.1.'+ MIBOID_ARG))
+))
+
         if errorIndication:
 
 

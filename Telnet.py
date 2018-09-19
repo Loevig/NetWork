@@ -16,7 +16,7 @@ routerHostname = "H5-prog"  # example - can be different
 child.expect(routerHostname+'>')
 child.sendline('enable')
 child.sendline(password)
-child.sendline ('conf t')
-child.sendline ('vlan 888')
+#child.sendline ('conf t')
+child.sendline ('reload')
 child.sendline('\n')
 print child.after
