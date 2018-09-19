@@ -15,8 +15,5 @@ class Get_PortInfo():
         )
 
 
-    #name = varBinds
-    #print(name[1:9])
-    #return (str(val):
-    for varBind in varBinds:
-        print (str(val '='.join([x.prettyPrint() for x in varBind]))
+    name = str(varBinds[0])
+    print(name[-18:])
