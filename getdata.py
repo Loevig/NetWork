@@ -27,3 +27,9 @@ class SNMP_PORTINFO_ClASS():
 
 #G1NAME = SNMP_PORTINFO_ClASS('2.10101')
 #G1STAUS = SNMP_PORTINFO_ClASS('6.10101')
+
+#Python allows you to read, write and delete files.
+#Use the function open("filename","w+") to create a file. ...
+#To append data to an existing file use the command open("Filename", "a")
+#Use the read function to read the ENTIRE contents of a file.
+#Use the readlines function to read the content of the file one by one.
