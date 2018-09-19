@@ -5,13 +5,13 @@ from pysnmp.entity.rfc3413.oneliner import cmdgen
 
 
 class Get_PortInfo():
-    def __init__(self):
+    def __init__(self, Community, IPAdd, InterfaceID):
         cmdGen = cmdgen.CommandGenerator()
         errorIndication, errorStatus, errorIndex, varBinds = cmdGen.getCmd(
-            cmdgen.CommunityData('H5'),
-            cmdgen.UdpTransportTarget(('192.168.1.5', 161)),
+            cmdgen.CommunityData(Community),
+            cmdgen.UdpTransportTarget((IPAdd, 161)),
             # cmdgen.ContextData(),
-            '1.3.6.1.2.1.2.2.1.2.10101',
+            '1.3.6.1.2.1.2.2.1.2.'+InterfaceID,
             lookupNames=True, lookupValues=True
             )
 
