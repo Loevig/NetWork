@@ -11,8 +11,9 @@ class SNMP_PORTINFO_ClASS():
                    ContextData(),
                    ObjectType(ObjectIdentity('1.3.6.1.2.1.2.2.1.'+ MIBOID_ARG))
 ))
+self.name, value = varBinds[0]
 
-        if errorIndication:
+'''    if errorIndication:
 
 
 
@@ -23,10 +24,11 @@ class SNMP_PORTINFO_ClASS():
                                 errorIndex and varBinds[int(errorIndex) - 1][0] or '?'))
         else:
             for varBind in varBinds:
-                print(' = '.join([x.prettyPrint() for x in varBind]))
-
+                f = open("/home/H5/test.txt", "a")
+                f.write(' = '.join([x.prettyPrint() for x in varBind]))
+'''
 #G1NAME = SNMP_PORTINFO_ClASS('2.10101')
-#G1STAUS = SNMP_PORTINFO_ClASS('6.10101')
+#G1STAUS = SNMP_PORTINFO_ClASS('6.10101')e
 
 #Python allows you to read, write and delete files.
 #Use the function open("filename","w+") to create a file. ...
