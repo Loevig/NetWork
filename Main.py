@@ -1,7 +1,7 @@
 import getdataV2
 import pexpect
 import getpass
-G1NAME = getdataV2.Get_PortInfo('H5', '192.168.1.5', '10101')
+G1NAME = getdataV2.Get_PortInfo('H5', '192.168.1.5', 10101, 10102)
 
 
 
@@ -23,4 +23,4 @@ child.sendline('enable')
 child.sendline(password)
 child.sendline ('conf t')
 child.sendline('int '+ G1NAME.name)
-child.sendline('sh')
+child.sendline('no sh')
