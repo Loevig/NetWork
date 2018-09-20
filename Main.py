@@ -1,7 +1,7 @@
 import getdataV2
 import pexpect
 import getpass
-G1NAME = getdataV2.Get_PortInfo_Range('H5', '192.168.1.5', 10103, 10124)
+G1NAME = getdataV2.Get_PortInfo_Range('H5', '192.168.1.5', 10101, 10124)
 
 
 
