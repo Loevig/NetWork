@@ -1,7 +1,7 @@
 import getdataV2
 import pexpect
 import getpass
-G1NAME = getdataV2.Get_PortInfo('H5', '192.168.1.5', 10101, 10102)
+G1NAME = getdataV2.Get_PortInfo_Range('H5', '192.168.1.5', 10103, 10124)
 
 
 
@@ -22,5 +22,6 @@ child.expect(routerHostname+'>')
 child.sendline('enable')
 child.sendline(password)
 child.sendline ('conf t')
-child.sendline('int '+ G1NAME.name)
-child.sendline('no sh')
+for l in G1NAME.name:
+    child.sendline('interface '+ l)
+    child.sendline('no sh')
